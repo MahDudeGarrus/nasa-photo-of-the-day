@@ -14,7 +14,7 @@ export default function NasaPhoto() {
 
     return (
         <> 
-            <div>
+            <div className='mediaDisplay'>
               {astroPhoto.media_type === "image" ? (
                 <img src={astroPhoto.url} alt={astroPhoto.title}/>
                 ) : (
@@ -28,7 +28,7 @@ export default function NasaPhoto() {
                     className="photo"
                     />
                 )}
-                  <div>
+                  <div className='photoData'>
                       <h1>{astroPhoto.title}</h1>
                       <p>{astroPhoto.date}</p>
                       <p>{astroPhoto.explanation}</p>
