@@ -1,8 +1,10 @@
 import React,  {useEffect, useState} from 'react';
 import axios from 'axios';
+import PhotoData from './PhotoData';
 
-export default function NasaPhoto() {
+export default function NasaPhoto(props) {
     const [astroPhoto, setAstroPhoto] = useState('');
+    console.log(astroPhoto)
     useEffect(() => {
         axios
           .get("https://api.nasa.gov/planetary/apod?api_key=kwMJiPpGwdPcduB02L77mnyPuogEFciL96wYQiSf")
@@ -28,12 +30,7 @@ export default function NasaPhoto() {
                     className="photo"
                     />
                 )}
-                  <div className='photoData'>
-                      <h1>{astroPhoto.title}</h1>
-                      <p>{astroPhoto.date}</p>
-                      <p>{astroPhoto.explanation}</p>
-                  </div>
-                    
+            <PhotoData key={astroPhoto.date} astroPhotoData={astroPhoto} />      
             </div>
         </>
     )
